@@ -163,6 +163,7 @@ public class JSMessage extends JSONObject {
     private void setHostData(JSONObject dataObject, ULHost host) throws JSONException {
         dataObject.put(JSDataKeys.HOST, host.getName());
         dataObject.put(JSDataKeys.SCHEME, host.getScheme());
+        dataObject.put(JSDataKeys.PORT, host.getPort());
     }
 
     /**
@@ -171,7 +172,6 @@ public class JSMessage extends JSONObject {
     private void setPathData(JSONObject dataObject, Uri originalUri) throws JSONException {
         dataObject.put(JSDataKeys.HASH, originalUri.getFragment());
         dataObject.put(JSDataKeys.PATH, originalUri.getPath());
-        dataObject.put(JSDataKeys.PORT, originalUri.getPort());
 
         final JSONObject queryParams = getQueryParamsFromUri(originalUri);
         dataObject.put(JSDataKeys.PARAMS, queryParams);
