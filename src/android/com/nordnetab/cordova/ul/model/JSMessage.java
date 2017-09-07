@@ -48,6 +48,11 @@ public class JSMessage extends JSONObject {
         public static final String HOST = "host";
 
         /**
+         * Port of the url
+         */
+        public static final String PORT = "port";
+
+        /**
          * Hash (fragment) from the url - data after '#'
          */
         public static final String HASH = "hash";
@@ -166,6 +171,7 @@ public class JSMessage extends JSONObject {
     private void setPathData(JSONObject dataObject, Uri originalUri) throws JSONException {
         dataObject.put(JSDataKeys.HASH, originalUri.getFragment());
         dataObject.put(JSDataKeys.PATH, originalUri.getPath());
+        dataObject.put(JSDataKeys.PORT, originalUri.getPort());
 
         final JSONObject queryParams = getQueryParamsFromUri(originalUri);
         dataObject.put(JSDataKeys.PARAMS, queryParams);
