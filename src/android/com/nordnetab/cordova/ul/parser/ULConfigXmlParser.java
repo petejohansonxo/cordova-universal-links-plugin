@@ -109,8 +109,16 @@ public class ULConfigXmlParser extends ConfigXmlParser {
         final String hostName = xml.getAttributeValue(null, XmlTags.HOST_NAME_ATTRIBUTE);
         final String eventName = xml.getAttributeValue(null, XmlTags.HOST_EVENT_ATTRIBUTE);
         final String scheme = xml.getAttributeValue(null, XmlTags.HOST_SCHEME_ATTRIBUTE);
+        final String portStr = xml.getAttributeValue(null, XmlTags.HOST_PORT_ATTRIBUTE);
+        Integer port = null;
+        if (portStr != null) {
+            try {
+                port = new Integer(portStr)
+            } catch (NumberFormatException) {
+            }
+        }
 
-        processedHost = new ULHost(hostName, scheme, eventName);
+        processedHost = new ULHost(hostName, scheme, port, eventName);
     }
 
     /**

@@ -23,6 +23,11 @@ final class XmlTags {
     public static final String HOST_SCHEME_ATTRIBUTE = "scheme";
 
     /**
+     * Port attribute for the host entry
+     */
+    public static final String HOST_PORT_ATTRIBUTE = "port";
+
+    /**
      * Name attribute for the host entry
      */
     public static final String HOST_NAME_ATTRIBUTE = "name";

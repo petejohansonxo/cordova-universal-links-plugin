@@ -19,6 +19,7 @@ public class ULHost {
     private final List<ULPath> paths;
     private final String name;
     private final String scheme;
+    private final Integer port;
     private String event;
 
     /**
@@ -28,9 +29,10 @@ public class ULHost {
      * @param scheme host scheme
      * @param event  event that corresponds to this host
      */
-    public ULHost(final String name, final String scheme, final String event) {
+    public ULHost(final String name, final String scheme, final Integer port, final String event) {
         this.name = name.toLowerCase();
         this.scheme = (scheme == null) ? DEFAULT_SCHEME : scheme;
+        this.port = port;
         this.event = (event == null) ? DEFAULT_EVENT : event;
         this.paths = new ArrayList<ULPath>();
     }
@@ -81,5 +83,15 @@ public class ULHost {
      */
     public String getScheme() {
         return scheme;
+    }
+
+    /**
+     * Getter for host port.
+     * Defined as 'port' attribute.
+     *
+     * @return port
+     */
+    public Integer getPort() {
+        return port;
     }
 }
