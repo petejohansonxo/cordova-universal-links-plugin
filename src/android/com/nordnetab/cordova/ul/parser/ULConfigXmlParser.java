@@ -113,8 +113,10 @@ public class ULConfigXmlParser extends ConfigXmlParser {
         Integer port = null;
         if (portStr != null) {
             try {
+                System.out.println("Parsing: " + portStr);
                 port = new Integer(portStr);
             } catch (NumberFormatException nfe) {
+               System.out.println("Format exception" + nfe);
             }
         }
 
