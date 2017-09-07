@@ -285,7 +285,7 @@ function createIntentFilter(host, scheme, port, pathName) {
   };
 
   if (port) {
-    intentFilter['data']['$']['android:port'] = port;
+    intentFilter['data'][0]['$']['android:port'] = port;
   }
 
 
