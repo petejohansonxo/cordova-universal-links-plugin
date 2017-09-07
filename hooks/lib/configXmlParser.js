@@ -109,6 +109,10 @@ function constructHostEntry(xmlElement) {
     host.scheme = hostProperties.scheme;
   }
 
+  if (hostProperties['port'] != null) {
+    host.port = hostProperties.port;
+  }
+
   // construct paths list, defined for the given host
   host.paths = constructPaths(xmlElement);
 
