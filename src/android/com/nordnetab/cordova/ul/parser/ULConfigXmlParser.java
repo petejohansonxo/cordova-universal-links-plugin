@@ -111,13 +111,11 @@ public class ULConfigXmlParser extends ConfigXmlParser {
         final String scheme = xml.getAttributeValue(null, XmlTags.HOST_SCHEME_ATTRIBUTE);
         final String portStr = xml.getAttributeValue(null, XmlTags.HOST_PORT_ATTRIBUTE);
         Integer port = null;
-        if (portStr != null) {
-            try {
-                System.out.println("Parsing: " + portStr);
-                port = new Integer(portStr);
-            } catch (NumberFormatException nfe) {
-               System.out.println("Format exception" + nfe);
-            }
+        try {
+            System.out.println("Parsing: " + portStr);
+            port = new Integer(portStr);
+        } catch (NumberFormatException nfe) {
+           System.out.println("Format exception" + nfe);
         }
 
         processedHost = new ULHost(hostName, scheme, port, eventName);
