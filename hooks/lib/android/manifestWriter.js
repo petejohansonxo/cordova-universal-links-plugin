@@ -284,8 +284,10 @@ function createIntentFilter(host, scheme, port, pathName) {
     }]
   };
 
+  console.log("GOT PORT:", port);
   if (port) {
     intentFilter['data'][0]['$']['android:port'] = port;
+    console.log("New intent:", intentFilter);
   }
 
 
