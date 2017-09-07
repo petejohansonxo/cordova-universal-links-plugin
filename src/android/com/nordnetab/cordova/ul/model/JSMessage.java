@@ -158,7 +158,7 @@ public class JSMessage extends JSONObject {
     }
 
     /**
-     * Put host name and scheme into data block
+     * Put host name, scheme, and port into data block
      */
     private void setHostData(JSONObject dataObject, ULHost host) throws JSONException {
         dataObject.put(JSDataKeys.HOST, host.getName());
