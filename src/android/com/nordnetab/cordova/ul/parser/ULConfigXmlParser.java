@@ -106,17 +106,17 @@ public class ULConfigXmlParser extends ConfigXmlParser {
      * Parse <host />
      */
     private void processHostBlock(XmlPullParser xml) {
-	    System.debug.println("ABOUT TO PROCESS HOST BLOCK");
+	    System.err.println("ABOUT TO PROCESS HOST BLOCK");
         final String hostName = xml.getAttributeValue(null, XmlTags.HOST_NAME_ATTRIBUTE);
         final String eventName = xml.getAttributeValue(null, XmlTags.HOST_EVENT_ATTRIBUTE);
         final String scheme = xml.getAttributeValue(null, XmlTags.HOST_SCHEME_ATTRIBUTE);
         final String portStr = xml.getAttributeValue(null, XmlTags.HOST_PORT_ATTRIBUTE);
         Integer port = null;
         try {
-            System.debug.println("Parsing: " + portStr);
+            System.err.println("Parsing: " + portStr);
             port = new Integer(portStr);
         } catch (NumberFormatException nfe) {
-           System.debug.println("Format exception" + nfe);
+           System.err.println("Format exception" + nfe);
         }
 
         processedHost = new ULHost(hostName, scheme, port, eventName);
