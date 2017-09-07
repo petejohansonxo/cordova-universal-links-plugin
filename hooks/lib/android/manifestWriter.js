@@ -188,7 +188,7 @@ function injectOptions(manifestData, pluginPreferences) {
   // generate intent-filters
   pluginPreferences.hosts.forEach(function(host) {
     host.paths.forEach(function(hostPath) {
-      ulIntentFilters.push(createIntentFilter(host.name, host.scheme, hostPath));
+      ulIntentFilters.push(createIntentFilter(host.name, host.scheme, host.port, hostPath));
     });
   });
 
@@ -257,7 +257,7 @@ function isLaunchActivity(activity) {
  * @param {String} pathName - host path
  * @return {Object} intent-filter as a JSON object
  */
-function createIntentFilter(host, scheme, pathName) {
+function createIntentFilter(host, scheme, port, pathName) {
   var intentFilter = {
     '$': {
       'android:autoVerify': 'true'
@@ -283,6 +283,11 @@ function createIntentFilter(host, scheme, pathName) {
       }
     }]
   };
+
+  if (port) {
+    intentFilter['data']['$']['android:port'] = port;
+  }
+
 
   injectPathComponentIntoIntentFilter(intentFilter, pathName);
 
